@@ -13,5 +13,9 @@ for (let i = 10; i <= 20; i++) {
   console.log(`${i},`);
 }
 
-// i = i + 2;
-// i += 2
+for (let i = 10; i <= 20; i++) {
+  i = i ^ 2;
+  console.log(`${i},`);
+}
+
+console.group();
