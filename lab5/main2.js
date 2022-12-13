@@ -11,3 +11,20 @@
 // Замінити студента номер 6 на студента з ім'ям Іван
 // Вививести усіх студентів у консоль у вигляді стрічки, студенти повинні бути розділені символом тире -
 // УСІ ЗАВДАННЯ ПОВИННІ БУТИ ВИКОНАНІ У ОДНОМУ ФАЙЛІ
+
+const students = [
+  'Alex',
+  'Ivan',
+  'Petro',
+  'Andriy',
+  'Vlad',
+  'Serhiy',
+  'Vadim',
+  'Elena',
+  'Fedor',
+  'Stacy',
+];
+
+students.push('Renat', 'Georgiy');
+students.unshift('Olya', 'Tunar');
+students.pop();
