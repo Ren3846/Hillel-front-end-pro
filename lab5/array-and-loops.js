@@ -1,15 +1,3 @@
-// Дано масив [16,-37,54,-4,72,-56,47,4, -16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47]
-
-//
-// Знайти мінімальний елемент масиву та його порядковий номер.
-// Знайти максимальний елемент масиву та його порядковий номер.
-// Визначити кількість негативних елементів.
-// Знайти добуток позитивних елементів.
-
-// Кожне завдання зі списку повинен виконувати окремий цикл, значення виводити в консоль.
-
-// Кожне завдання виводити в консоль застосовувючи console.group('Текст завдання')
-
 const array = [
   16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63, 4, -54, 76, -4, 12, -35, 4,
   47,
@@ -24,15 +12,45 @@ for (i = 0; i <= array.length; i++) {
     counter++;
   }
 }
-console.log(sum, counter);
+console.log(`Сумма: ${sum}, Кількість: ${counter}`);
 console.groupEnd();
 
 console.group('Знайти мінімальний елемент масиву та його порядковий номер.');
 let min = array[0];
 for (i = 0; i <= array.length; i++) {
-  if (array[i] < min) {
-    min = array[i];
+  if (array[i] < array[min]) {
+    min = i;
   }
 }
-console.log(min, i + 1);
+console.log(`Елемент: ${array[min]}, Номер: ${min + 1}`);
+console.groupEnd();
+
+console.group('Знайти максимальний елемент масиву та його порядковий номер.');
+let max = array[0];
+for (i = 0; i <= array.length; i++) {
+  if (array[i] > array[max]) {
+    max = i;
+  }
+}
+console.log(`Елемент: ${array[max]}, Номер: ${max + 1}`);
+console.groupEnd();
+
+console.group('Визначити кількість негативних елементів');
+let count = 0;
+for (i = 0; i <= array.length; i++) {
+  if (array[i] < 0) {
+    count++;
+  }
+}
+console.log(count);
+console.groupEnd();
+
+console.group('Знайти добуток позитивних елементів.');
+let res = 1;
+for (i = 0; i <= array.length; i++) {
+  if (array[i] > 0) {
+    res = res * array[i];
+  }
+}
+console.log(res);
 console.groupEnd();
