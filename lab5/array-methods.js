@@ -35,7 +35,7 @@ if (students.includes(find)) {
 }
 
 // Створити ще один масив з існуючого, включивши в нього студентів починаючи з індекса 3 і закінчуючи індесом 6 включно ( 3,4,5,6)
-const someStudents = students.slice(2, 6);
+const someStudents = students.slice(3, 7);
 
 // Створити ще один масив нових студентів(довжина 5), і обєднати існуючих студентів з новими у новий масив усі студенти. ДАЛІ ПРАЦЮЄМО З МАСИВОМ УСІ СТУДЕНТИ
 const newStudents = ['Mariya', 'Bogdan', 'Volodimir', 'Darina', 'Michael'];
