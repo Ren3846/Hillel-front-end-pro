@@ -21,4 +21,5 @@ function removeElement(array, item) {
   }
 }
 removeElement(array, 8);
+
 console.log(array);
