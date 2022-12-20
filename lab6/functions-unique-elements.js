@@ -5,13 +5,18 @@ const firstArr = ['Lviv', 'Kharkiv', 'Zaporizhzhya', 'Kyiv'];
 const secondArr = ['Lviv', 'Mariupol', 'Zaporizhzhya', 'Kyiv'];
 
 function uniqueElements(arr1, arr2) {
-  const generalArr = firstArr.concat(secondArr);
   const uniqArr = [];
-  for (let i = 0; i < generalArr.length; i++) {
-    const element = generalArr[i];
-    if (!uniqArr.includes(element)) {
-      uniqArr.push(element);
+
+  if (Array.isArray(arr1) && Array.isArray(arr2)) {
+    const generalArr = firstArr.concat(secondArr);
+    for (let i = 0; i < generalArr.length; i++) {
+      const element = generalArr[i];
+      if (!uniqArr.includes(element)) {
+        uniqArr.push(element);
+      }
     }
+  } else {
+    console.log('ops..');
   }
   return uniqArr;
 }
