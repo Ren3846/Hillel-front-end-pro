@@ -6,7 +6,6 @@ const secondArr = ['Lviv', 'Mariupol', 'Zaporizhzhya', 'Kyiv'];
 
 function uniqueElements(arr1, arr2) {
   const uniqArr = [];
-
   if (Array.isArray(arr1) && Array.isArray(arr2)) {
     const generalArr = firstArr.concat(secondArr);
     for (let i = 0; i < generalArr.length; i++) {
