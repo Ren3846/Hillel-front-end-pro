@@ -11,9 +11,8 @@ function getUniqueElems(arr1, arr2) {
       if (generalArr[i - 1] === generalArr[i]) t = generalArr[i - 1];
       if (generalArr[i - 1] !== t) uniqArr[j++] = generalArr[i - 1];
     }
-  }
-  return uniqArr;
+    return uniqArr;
+  } else return console.log('Ops..', uniqArr);
 }
 
 const res = getUniqueElems(firstArr, secondArr);
-console.log(res);
