@@ -1,24 +1,19 @@
-// Створити функцію яка отримує два аргументи, і обидва є масивами.
-// Функція повинна повернути масив елементів які не є спільними для обох масивів.
+const firstArr = ['Lviv', 'Dnipro', 'Ternopil', 'London'];
+const secondArr = ['Dnipro', 'Paris', 'York', 'Ternopil'];
 
-const firstArr = ['Lviv', 'Kharkiv', 'Zaporizhzhya', 'Kyiv'];
-const secondArr = ['Lviv', 'Mariupol', 'Zaporizhzhya', 'Kyiv'];
-
-function uniqueElements(arr1, arr2) {
-  const uniqArr = [];
+function getUniqueElems(arr1, arr2) {
+  let uniqArr = [];
   if (Array.isArray(arr1) && Array.isArray(arr2)) {
-    const generalArr = firstArr.concat(secondArr);
-    for (let i = 0; i < generalArr.length; i++) {
-      const element = generalArr[i];
-      if (!uniqArr.includes(element)) {
-        uniqArr.push(element);
-      }
+    const generalArr = arr1.concat(arr2);
+    generalArr.sort();
+    let n = generalArr.length;
+    for (let i = 1, j = 0, t; i < n + 1; i++) {
+      if (generalArr[i - 1] === generalArr[i]) t = generalArr[i - 1];
+      if (generalArr[i - 1] !== t) uniqArr[j++] = generalArr[i - 1];
     }
-  } else {
-    console.log('ops..');
   }
   return uniqArr;
 }
 
-const res = uniqueElements(firstArr, secondArr);
+const res = getUniqueElems(firstArr, secondArr);
 console.log(res);
