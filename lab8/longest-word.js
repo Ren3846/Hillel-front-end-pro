@@ -14,7 +14,7 @@ function findLongestWord(str) {
     return longestWord;
   } else {
     console.log('Not a string..');
-    return 0;
+    return '';
   }
 }
 
