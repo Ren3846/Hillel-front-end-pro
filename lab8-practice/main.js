@@ -9,9 +9,9 @@
 // Улюблений колір повиннен чергувати великий та нижній регісти бути ЖоВтИй
 
 const object = {
-  name: 'Ivan',
-  city: 'Lviv',
-  age: 18,
+  name: 'Renat',
+  city: 'Kyiv',
+  age: 22,
   country: 'Ukraine',
   color: 'White',
 };
@@ -77,16 +77,16 @@ console.log(doMath(1, '*', 2));
 //   `Створити функцію яка видаляє з масива усі елементи які рівні заданому символу
 // func([2,3,5,6,6,7], 6) => [2,3,5,7]`
 
-const array = [1, 2, 2, 3, 4, 5, 6, 7, 8, 9];
+// const array = [1, 2, 2, 3, 4, 5, 6, 7, 8, 9];
 
-function deleteElement(arr, del) {
-  for (let i = 0; i < arr.length; i++) {
-    const element = arr[i];
-    if (element === del) {
-      arr.slice();
-    }
-  }
-  return arr;
-}
+// function deleteElement(arr, del) {
+//   for (let i = 0; i < arr.length; i++) {
+//     const element = arr[i];
+//     if (element === del) {
+//       arr.slice();
+//     }
+//   }
+//   return arr;
+// }
 
-console.log(deleteElement(array, 2));
+// console.log(deleteElement(array, 2));

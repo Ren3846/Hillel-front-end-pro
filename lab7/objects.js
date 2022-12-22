@@ -1,18 +1,3 @@
-function greeting(person) {
-  person.name = person.name.toUpperCase();
-  person.cities = person.cities.split(',');
-  // if (typeof person.money === 'string') {
-  //   person.money = Number.parseInt(person.money);
-  //   person.money = Math.round(person.money);
-  //   if (Number.isNaN(person.money)) {
-  //     console.log('Ops..');
-  //   } else {
-  //     Math.round(person.money);
-  //   }
-  // }
-  return person;
-}
-
 const peoples = [
   {
     name: 'Alina',
@@ -47,6 +32,21 @@ const peoples = [
     ],
   },
 ];
+
+function greeting(person) {
+  person.name = person.name.toUpperCase();
+  person.cities = person.cities.split(',');
+  // if (typeof person.money === 'string') {
+  //   person.money = Number.parseInt(person.money);
+  //   person.money = Math.round(person.money);
+  //   if (Number.isNaN(person.money)) {
+  //     console.log('Ops..');
+  //   } else {
+  //     Math.round(person.money);
+  //   }
+  // }
+  return person;
+}
 
 for (let i = 0; i < peoples.length; i++) {
   const person = peoples[i];
