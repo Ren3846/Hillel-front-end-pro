@@ -32,7 +32,6 @@ function mainFunc(user) {
   user.color = colorIsArray.join('+');
   return user;
 }
-
 console.log(mainFunc(object));
 
 // 'Калькулятор',
@@ -70,7 +69,6 @@ function doMath(x, znak, y) {
   }
   return result;
 }
-
 console.log(doMath(1, '*', 2));
 
 // 'Очисник масива'
