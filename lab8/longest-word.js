@@ -2,10 +2,10 @@ const string = 'london is the capital of great britain its political economic an
 
 function findLongestWord(str) {
   if (typeof str === 'string') {
-    let arrStr = str.split(' ');
-    let longestWord = '';
+    const arrStr = str.split(' ');
+    let longestWord = arrStr[0];
 
-    for (i = 0; i < arrStr.length; i++) {
+    for (i = 1; i < arrStr.length; i++) {
       if (arrStr[i].length > longestWord.length) {
         longestWord = arrStr[i];
       }
