@@ -51,6 +51,7 @@ function greeting(person) {
   person.name = person.name.toUpperCase();
   person.cities = person.cities.split(',');
   person.money = Math.round(person.money);
+  person.children.name = { name: 'Stepan' };
 
   if (typeof person.money === 'string') {
     person.money = Number.parseInt(person.money);
@@ -65,8 +66,9 @@ function greeting(person) {
 
 for (let i = 0; i < peoples.length; i++) {
   const person = peoples[i];
-  for (let j = 0; person < peoples.children.length; j++) {
-    const child = peoples.children[j];
+  for (let j = 0; person < peoples.length; j++) {
+    const child = peoples[i].children[j];
+    console.log(child);
   }
   greeting(person);
 }
