@@ -1,5 +1,9 @@
-// Дан масив об'єктів. Вивести масив телефонних номерів користувачів, у яких баланс більше 2000 доларів.
+//
+// Дан масив об'єктів.
+// Вивести масив телефонних номерів користувачів, у яких баланс більше 2000 доларів.
+//
 // І знайти суму всіх балансів користувачів
+//
 
 let users = [
   {
@@ -58,9 +62,13 @@ let users = [
   },
 ];
 
-function balance(arr) {
-  return Number(arr.balance) > 2000;
+function doBalance(user) {
+  const balance = Number.parseInt(user.balance);
+  const isBalance = balance > 2000;
+  console.log(balance);
+
+  return isBalance;
 }
 
-const bal = users.filter(balance);
+const bal = users.filter(doBalance);
 console.log(bal);
