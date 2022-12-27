@@ -47,30 +47,44 @@ const peoples = [
   },
 ];
 
-function greeting(person) {
-  person.name = person.name.toUpperCase();
-  person.cities = person.cities.split(',');
-  person.money = Math.round(person.money);
-  person.children.name = { name: 'Stepan' };
+function editPeoples(peoples) {
+  for (let i = 0; i < peoples.length; i++) {
+    const person = peoples[i];
+    const ageStepanRand = Math.floor(Math.random() * 18);
+    const obj = { name: 'Stepan', age: ageStepanRand };
 
-  if (typeof person.money === 'string') {
-    person.money = Number.parseInt(person.money);
-    person.money = Math.round(person.money);
-    if (Number.isNaN(person.money)) {
-      console.log('Ops..');
-    } else {
+    person.name = person.name.toUpperCase();
+    person.cities = person.cities.split(',');
+    person.children.push(obj);
+
+    for (let j = 0; j < person.children.length; j++) {
+      person.children[j].name = person.children[j].name.toUpperCase();
     }
-  }
-  return person;
-}
 
-for (let i = 0; i < peoples.length; i++) {
-  const person = peoples[i];
-  for (let j = 0; person < peoples.length; j++) {
-    const child = peoples[i].children[j];
-    console.log(child);
-  }
-  greeting(person);
-}
+    if (typeof person.money === 'string') {
+      person.money = Number.parseInt(person.money);
+      person.money = Math.round(person.money);
+      if (Number.isNaN(person.money)) {
+        console.log('Ops..');
+      }
+    } else {
+      person.money = Math.round(person.money);
+    }
 
-console.log(peoples);
+    console.log(person);
+  }
+  return peoples;
+}
+editPeoples(peoples);
+
+// function doubleEveryElement(matrix){
+//   for(let i = 0; i< matrix.length; i++){
+//     const row = matrix[i];
+//     console.log(`Element ${i}`, row);
+//     for(let j=0; j<row.length;j++){
+//       console.log(`Element ${i}${j}`, row[j]);
+//     }
+//   }
+// }
+
+// Math.random()* 18;
