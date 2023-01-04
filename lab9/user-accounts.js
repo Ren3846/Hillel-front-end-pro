@@ -9,7 +9,7 @@ let users = [
   {
     index: 0,
     isActive: true,
-    balance: '2.226.60',
+    balance: '$2,226.60',
     name: 'Eugenia Sawyer',
     gender: 'female',
     phone: '+1 (840) 583-3207',
@@ -63,10 +63,9 @@ let users = [
 ];
 
 function doBalance(user) {
-  const balance = parseFloat(user.balance);
+  const balance = Number(user.balance.replace(/[^0-9]/g, '').slice(0, 4));
   const isBalance = balance > 2000;
-  console.log(balance);
-
+  console.log(user.phone);
   return isBalance;
 }
 
