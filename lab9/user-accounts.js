@@ -1,10 +1,3 @@
-//
-// Дан масив об'єктів.
-// Вивести масив телефонних номерів користувачів, у яких баланс більше 2000 доларів.
-//
-// І знайти суму всіх балансів користувачів
-//
-
 let users = [
   {
     index: 0,
@@ -64,10 +57,18 @@ let users = [
 
 function doBalance(user) {
   const balance = Number(user.balance.replace(/[^0-9]/g, '').slice(0, 4));
-  const isBalance = balance > 2000;
-  console.log(user.phone);
-  return isBalance;
+  const isBigger = balance > 2000;
+  return isBigger;
 }
 
-const bal = users.filter(doBalance);
-console.log(bal);
+function doSum(accum, user) {
+  const balance = Number(user.balance.replace(/[^0-9.]/g, '').slice(0, 6));
+  return accum + balance;
+}
+
+const filteredUsers = users.filter(doBalance);
+
+const sumAllBalance = users.reduce(doSum, 0);
+
+console.log(filteredUsers);
+console.log(`Сума всіх балансів користувачів: ${sumAllBalance}`);
