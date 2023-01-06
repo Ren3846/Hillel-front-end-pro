@@ -58,6 +58,7 @@ let users = [
 function doBalance(user) {
   const balance = Number(user.balance.replace(/[^0-9]/g, '').slice(0, 4));
   const isBigger = balance > 2000;
+
   return isBigger;
 }
 
@@ -68,7 +69,12 @@ function doSum(accum, user) {
 
 const filteredUsers = users.filter(doBalance);
 
-const sumAllBalance = users.reduce(doSum, 0);
+const arr = [];
+for (const prop of filteredUsers) {
+  arr.push(prop.phone);
+}
 
-console.log(filteredUsers);
+const sumAllBalance = filteredUsers.reduce(doSum, 0);
+
+console.log(arr);
 console.log(`Сума всіх балансів користувачів: ${sumAllBalance}`);
