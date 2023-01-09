@@ -63,14 +63,12 @@ function doBalance(user) {
 }
 
 function doSum(accum, user) {
-  const balance = Number(user.balance.replace(/[^0-9.]/g, '').slice(0, 6));
+  const balance = Number(user.balance.replace(/[^0-9.]/g, ''));
   return accum + balance;
 }
 
-function doArr(user) {
-  const arr = [];
-  arr.push(user.phone);
-  return user.phone;
+function doArr(arr) {
+  return arr.phone;
 }
 
 const filteredUsers = users.filter(doBalance);
