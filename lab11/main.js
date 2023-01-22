@@ -1,7 +1,20 @@
-const student = [];
+// var elem = document.querySelector('#elem');
 
-let studentsList = '';
+// createTable(elem, 3, 3);
 
-function getStudent(student) {}
+// function createTable(parent, cols, rows) {
+//   var table = document.createElement('table');
 
-studentsList.forEach();
+//   for (var i = 0; i < rows; i++) {
+//     var tr = document.createElement('tr');
+
+//     for (var j = 0; j < cols; j++) {
+//       var td = document.createElement('td');
+//       tr.appendChild(td);
+//     }
+
+//     table.appendChild(tr);
+//   }
+
+//   parent.appendChild(table);
+// }
