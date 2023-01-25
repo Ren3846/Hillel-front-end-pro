@@ -21,9 +21,10 @@ imageElement.src = imagesUrls[currentIndex];
 function nextImageHandler() {
   currentIndex++;
   if (currentIndex >= imagesUrls.length) {
-    currentIndex = 0;
     nextButton.style.display = 'none';
+    currentIndex = 0;
   }
+  nextButton.style.display = 'block';
   imageElement.src = imagesUrls[currentIndex];
 }
 
@@ -33,5 +34,6 @@ function previousImageHandler() {
     currentIndex = imagesUrls.length - 1;
     previousButton.style.display = 'none';
   }
+  previousButton.style.display = 'block';
   imageElement.src = imagesUrls[currentIndex];
 }
