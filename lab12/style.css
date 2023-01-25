@@ -1,0 +1,26 @@
+.wrap-slider {
+  position: relative;
+}
+.slider {
+  margin: 0 auto;
+  height: 400px;
+  width: 400px;
+  overflow: hidden;
+}
+.slider img {
+  height: 400px;
+  width: 400px;
+}
+.slider-nav .slider-arrow {
+  position: absolute;
+  bottom: 0;
+  font-size: 50px;
+  cursor: pointer;
+}
+.slider-nav .slider-left {
+  display: none;
+  left: 0;
+}
+.slider-nav .slider-right {
+  right: 0;
+}

@@ -5,35 +5,27 @@
 //     При кліку на Prev - попереднє .
 //     При досягненні останнього зображення - ховати кнопку Next. Аналогічно з першим зображенням і кнопкою Prev.
 
-const imagesUrls = ['img/img1.png', 'img/img2.png', 'img/img3.png'];
+var previousButton = document.getElementById('slide-left'),
+  nextButton = document.getElementById('slide-right'),
+  total_img = document.getElementsByTagName('img'),
+  index = 0;
 
-let currentIndex = 0;
-
-const nextButton = document.querySelector('#next');
-nextButton.addEventListener('click', nextImageHandler);
-
-const previousButton = document.querySelector('#previous');
-previousButton.addEventListener('click', previousImageHandler);
-
-const imageElement = document.querySelector('#image');
-imageElement.src = imagesUrls[currentIndex];
-
-function nextImageHandler() {
-  currentIndex++;
-  if (currentIndex >= imagesUrls.length) {
+nextButton.addEventListener('click', moveLeft);
+function moveLeft() {
+  previousButton.style.display = 'block';
+  total_img[index].style.display = 'none';
+  total_img[++index].style.display = 'block';
+  if (index === total_img.length - 1) {
     nextButton.style.display = 'none';
-    currentIndex = 0;
   }
-  nextButton.style.display = 'block';
-  imageElement.src = imagesUrls[currentIndex];
 }
 
-function previousImageHandler() {
-  currentIndex--;
-  if (currentIndex < 0) {
-    currentIndex = imagesUrls.length - 1;
+previousButton.addEventListener('click', moveRight);
+function moveRight() {
+  nextButton.style.display = 'block';
+  total_img[index].style.display = 'none';
+  total_img[--index].style.display = 'block';
+  if (index === 0) {
     previousButton.style.display = 'none';
   }
-  previousButton.style.display = 'block';
-  imageElement.src = imagesUrls[currentIndex];
 }
