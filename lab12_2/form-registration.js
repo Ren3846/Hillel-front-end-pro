@@ -13,6 +13,8 @@
 const formElement = document.getElementById('form1');
 formElement.addEventListener('submit', (e) => {
   e.preventDefault();
+  formElement.style.display = 'none';
+
   const formData = new FormData(formElement);
   const name = formData.get('first_name');
   const surname = formData.get('last_name');
@@ -31,4 +33,6 @@ formElement.addEventListener('submit', (e) => {
   row.insertCell().innerHTML = city;
   row.insertCell().innerHTML = adress;
   row.insertCell().innerHTML = checkedValues;
+
+  table.style.display = 'block';
 });
