@@ -13,49 +13,49 @@
 <div class="container">
     <div class="row">
       <div class="col-sm">
-        <form id="contact_form">
+        <form id="form1">
             <legend>Contact form</legend>
              
                 <label>Ім'я</label>   
-                <input id="userName"  name="first_name" placeholder="Ім'я" class="form-control"  type="text">
+                <input name="first_name" placeholder="Ім'я" class="form-control"  type="text">
                 <label>Прізвище</label>  
-                <input id="userLastName" name="last_name" placeholder="Прізвище" class="form-control"  type="text">
+                <input name="last_name" placeholder="Прізвище" class="form-control"  type="text">
                 <label>Дата народження</label>  
-                <input id="userBirth" name="birthday" placeholder="Дата народження" class="form-control"  type="text">
+                <input name="birthday" placeholder="Дата народження" class="form-control"  type="text">
             
-              <label>Стать</label>   
-                <div class="radio">
+               <label>Стать</label>   
+                <div  class="radio">
                     <label>
-                        <input type="radio" name="hosting" value="man" /> Чол.
+                        <input type="radio" name="sex" value="man" /> Чол.
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="hosting" value="women" /> Жін.
+                        <input type="radio" name="sex" value="women" /> Жін.
                     </label>
                 </div>
              
-              <label>Місто</label>   
-              <select name="state" class="form-control selectpicker" >
-                <option value=" " >Київ</option>
-                <option>Львів</option>
-                <option>Харків</option>
-                <option >Дніпро</option>
-                <option >Запоріжжя</option>
+              <label >Місто</label>   
+              <select  name="city" class="form-control selectpicker" >
+                <option value="Київ">Київ</option>
+                <option value="Львів">Львів</option>
+                <option value="Харків">Харків</option>
+                <option value="Дніпро">Дніпро</option>
+                <option value="Запоріжжя">Запоріжжя</option>
               </select>
             
               <label>Адреса</label>   
-              <textarea class="form-control" name="comment" placeholder="Адреса"></textarea>
+              <textarea  class="form-control" name="adress" placeholder="Адреса"></textarea>
             
               <label>Мови:</label>   
               <label> 
-                <input name="languages1" type="checkbox"> Англійська |
+                <input class="checkbox" type="checkbox"  value="en"> Англійська |
               </label>
               <label> 
-                <input name="languages2" type="checkbox"> Українська |
+                <input class="checkbox" type="checkbox" value="ua"> Українська |
               </label>
               <label> 
-                <input name="languages3" type="checkbox"> Російська |
+                <input class="checkbox" type="checkbox"  value="ru"> Російська |
               </label>
             
              <div>  
@@ -64,10 +64,17 @@
             </form>
       </div>
       <div class="col-sm">
+        <!-- <form id="form1">
+          <input type="text" name="name" value="John">
+          <input type="text" name="surname" value="Smith">
+          <input type="submit">
+        </form> -->
+       
         <table class="table" id="table" >
             <tr>
              <td>Ім'я</td>
              <td>Прізвище</td>
+             <td>Дата народження</td>
              <td>Стать</td>
              <td>Місто</td>
              <td>Адреса</td>
