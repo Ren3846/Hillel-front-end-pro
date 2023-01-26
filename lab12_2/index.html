@@ -10,87 +10,80 @@
 </head>
 <body>
 
-
- 
-<!-- <input id="userName" />
-<input id="userId" />
-<input id="regTime" />
-<button id="button">add</button>
-<button id="gen">generate id</button>
-<tr>
-<td>username</td>
-<td>userid</td>
-<td>regtime</td>
-</tr>
-</table> --->
-
-<div class="container col-md-4">
-<form id="contact_form">
-<legend>Contact form</legend>
- <div>
-    <label>Ім'я</label>   
-    <input id="userName"  name="first_name" placeholder="Ім'я" class="form-control"  type="text">
-    <label>Прізвище</label>  
-    <input id="userLastName" name="last_name" placeholder="Прізвище" class="form-control"  type="text">
-    <label>Дата народження</label>  
-    <input id="userBirth" name="birthday" placeholder="Дата народження" class="form-control"  type="text">
-
-  <label>Стать</label>   
-    <div class="radio">
-        <label>
-            <input type="radio" name="hosting" value="man" /> Чол.
-        </label>
-    </div>
-    <div class="radio">
-        <label>
-            <input type="radio" name="hosting" value="women" /> Жін.
-        </label>
-    </div>
- 
-  <label>Місто</label>   
-  <select name="state" class="form-control selectpicker" >
-    <option value=" " >Київ</option>
-    <option>Львів</option>
-    <option>Харків</option>
-    <option >Дніпро</option>
-    <option >Запоріжжя</option>
-  </select>
-
-  <label>Адреса</label>   
-  <textarea class="form-control" name="comment" placeholder="Адреса"></textarea>
-
-  <label>Мови:</label>   
-  <label> 
-    <input name="languages1" type="checkbox"> Англійська |
-  </label>
-  <label> 
-    <input name="languages2" type="checkbox"> Українська |
-  </label>
-  <label> 
-    <input name="languages3" type="checkbox"> Російська |
-  </label>
- </div>
- <div>  
-     <button id="button" class="btn btn-warning" >Зберегти</button>
- </div>
-</div>
-
 <div class="container">
-    <div class="col-md-12">
-        <table class="table" id="table" style="border: 1px solid black">
+    <div class="row">
+      <div class="col-sm">
+        <form id="contact_form">
+            <legend>Contact form</legend>
+             
+                <label>Ім'я</label>   
+                <input id="userName"  name="first_name" placeholder="Ім'я" class="form-control"  type="text">
+                <label>Прізвище</label>  
+                <input id="userLastName" name="last_name" placeholder="Прізвище" class="form-control"  type="text">
+                <label>Дата народження</label>  
+                <input id="userBirth" name="birthday" placeholder="Дата народження" class="form-control"  type="text">
+            
+              <label>Стать</label>   
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="hosting" value="man" /> Чол.
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="hosting" value="women" /> Жін.
+                    </label>
+                </div>
+             
+              <label>Місто</label>   
+              <select name="state" class="form-control selectpicker" >
+                <option value=" " >Київ</option>
+                <option>Львів</option>
+                <option>Харків</option>
+                <option >Дніпро</option>
+                <option >Запоріжжя</option>
+              </select>
+            
+              <label>Адреса</label>   
+              <textarea class="form-control" name="comment" placeholder="Адреса"></textarea>
+            
+              <label>Мови:</label>   
+              <label> 
+                <input name="languages1" type="checkbox"> Англійська |
+              </label>
+              <label> 
+                <input name="languages2" type="checkbox"> Українська |
+              </label>
+              <label> 
+                <input name="languages3" type="checkbox"> Російська |
+              </label>
+            
+             <div>  
+                 <button id="button" class="btn btn-warning" >Зберегти</button>
+             </div>
+            </form>
+      </div>
+      <div class="col-sm">
+        <table class="table" id="table" >
             <tr>
-            <td>Ім'я</td>
-            <td>Прізвище</td>
-            <td>Дата народження</td>
-            <td>Ім'я</td>
-            <td>Прізвище</td>
-            <td>Дата народження</td>
+             <td>Ім'я</td>
+             <td>Прізвище</td>
+             <td>Стать</td>
+             <td>Місто</td>
+             <td>Адреса</td>
+             <td>Мови</td>
             </tr>
-        </table>   
-     </div>
-</div>
+        </table>  
+      </div>
+     
+    </div>
+  </div>
 
-<script src="/lab12/form-registration.js"></script>
+
+ 
+
+
+<script src="/lab12_2/form-registration.js"></script>
 </body>
 </html>
 

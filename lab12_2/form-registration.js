@@ -19,7 +19,7 @@
 // }
 
 button.onclick = function () {
-  // event.preventDefault();
+  event.preventDefault();
   let row = table.insertRow();
   row.insertCell().innerHTML = userName.value;
   row.insertCell().innerHTML = userLastName.value;
