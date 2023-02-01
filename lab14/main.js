@@ -1,15 +1,11 @@
-document.body.addEventListener('mouseover', function (event) {
-  let boxOne = event.target.closest('.box');
+// Є текстове поле на сторінці.
+//Під час фокусування на цьому полі збоку з'являється <div>. При пропажі фокусу - <div> так само пропадає
+const input = document.getElementsByTagName('input')[0];
 
-  if (boxOne) {
-    boxOne.textContent = 'HOVER ME <div>';
-  }
-});
+input.onblur = function () {
+  div.innerText = '';
+};
 
-document.body.addEventListener('mouseout', function (event) {
-  let boxOne = event.target.closest('.box');
-
-  if (boxOne) {
-    boxOne.textContent = 'HOVER ME';
-  }
-});
+input.onfocus = function () {
+  div.innerText = '<div>';
+};
