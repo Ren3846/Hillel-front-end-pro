@@ -7,70 +7,72 @@
 //     При натисканні на “купити” з'являється повідомлення, що товар куплений
 //     і повернення у вихідний стан програми ( коли відображається лише список категорій).
 
-// const listElement = document.getElementsByTagName('ul')[0];
-// const inputElement = document.getElementsByTagName('input')[0];
-// let items = [];
-// console.log(localStorage.getItem('list'));
-// if (localStorage.getItem('list')) {
-//   items - localStorage.getItem('list').split(',');
-// }
-// console.log(items);
-// items.forEach(addElement);
+const arr = [{ name: 'wedwed', description: 'wdewfwef', price: 'wdwefwe' }];
+const cat = document.getElementsByClassName('cat')[0];
+const dog = document.getElementsByClassName('dog')[0];
+const bird = document.getElementsByClassName('bird')[0];
+const category = document.getElementsByClassName('category')[0];
+category.addEventListener('click', addDivInfo);
 
-// function addElement(text) {
-//   const itemElement = document.createElement('li');
-//   itemElement.innerText = text;
-//   listElement.append(itemElement);
-// }
+const catalog = document.getElementsByClassName('catalog')[0];
+catalog.addEventListener('click', addDivCatalog);
 
-// function addListElement(event) {
-//   event.preventDefault();
-//   console.log(event);
-//   const value = inputElement.value;
-//   if (items.includes(value)) {
-//     console.log('i have it');
-//     return;
-//   }
-//   addElement(value);
-//   items.push(value);
-//   inputElement.value = '';
-//   localStorage.setItem('list', items);
-// }
+const button = document.getElementsByClassName('button');
+button.addEventListener('click', buyItem);
 
-// document.forms[0].addEventListener('submit', addListElement);
+const mainBlock = document.getElementsByClassName('mainBlock')[0];
+mainBlock.addEventListener('click', clear);
 
-// // Write JavaScript here
-// function app() {
-//   const buttons = document.querySelectorAll('.button');
-//   const cards = document.querySelectorAll('.card');
+const possible = [cat, dog, bird];
 
-//   function filter(category, items) {
-//     items.forEach((item) => {
-//       const isItemFiltered = !item.classList.contains(category);
-//       const isShowAll = category.toLowerCase() === 'all';
-//       if (isItemFiltered && !isShowAll) {
-//         item.classList.add('anime');
-//       } else {
-//         item.classList.remove('displa');
-//         item.classList.remove('anime');
-//       }
-//     });
-//   }
+const items = document.getElementsByClassName('items')[0];
 
-//   buttons.forEach((button) => {
-//     button.addEventListener('click', () => {
-//       const currentCategory = button.dataset.filter;
-//       filter(currentCategory, cards);
-//     });
-//   });
+const h1 = document.getElementById('h3');
+const p = document.getElementById('p');
+const span = document.getElementById('span');
 
-//   cards.forEach((card) => {
-//     card.ontransitionend = function () {
-//       if (card.classList.contains('anime')) {
-//         card.classList.add('hide');
-//       }
-//     };
-//   });
-// }
+function pushText(el) {
+  h1.innerText = arr[el].name;
+  p.innerText = arr[el].description;
+  span.innerText = arr[el].price;
+}
 
-// app();
+function addDivInfo(event) {
+  event.stopPropagation();
+  const nameLink = event.target.innerText;
+  if (nameLink === 'dog') {
+    showElement(dog);
+  } else if (nameLink === 'cat') {
+    showElement(cat);
+  } else if (nameLink === 'bird') {
+    showElement(bird);
+  }
+}
+
+function addDivCatalog(event) {
+  event.stopPropagation();
+  const nameLink = e.target.innerText;
+  const index = arr.findIndex((el) => el.name === nameLink);
+  pushText(index);
+  items.style.display = 'block';
+}
+
+function showElement(el) {
+  el.style.display = 'block';
+  possible
+    .filter((item) => item !== el)
+    .forEach((item) => {
+      item.style.display = 'block';
+    });
+}
+
+function show(element) {
+  items.style.display = 'none';
+  element.style.display = 'block';
+}
+
+function displayNone(arr) {
+  arr.forEach((element) => {
+    element.style.display = 'none';
+  });
+}
