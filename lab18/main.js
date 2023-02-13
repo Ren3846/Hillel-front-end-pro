@@ -23,9 +23,8 @@ const displayPokemon = (pokemon) => {
     .map(
       (pokeman) => `
         <li class="card">
-            <img class="card-image" src="${pokeman.image}"/>
-            <h2 class="card-title">${pokeman.id}. ${pokeman.name}</h2>
-            <p class="card-subtitle">Type: ${pokeman.type}</p>
+            <h2 class="card-title"> ${pokeman.name}</h2>
+            <button>View</button>
         </li>
     `,
     )
@@ -34,3 +33,13 @@ const displayPokemon = (pokemon) => {
 };
 
 fetchPokemon();
+
+{
+  /* <li class="card">
+  <img class="card-image" src="${pokeman.image}" />
+  <h2 class="card-title">
+    ${pokeman.id}. ${pokeman.name}
+  </h2>
+  <p class="card-subtitle">Type: ${pokeman.type}</p>
+</li>; */
+}
