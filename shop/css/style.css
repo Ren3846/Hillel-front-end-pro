@@ -1,3 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  height: 100vh;
+}
+
+li {
+  padding: 10px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .order-form {
   display: none;
 }

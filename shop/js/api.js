@@ -7,4 +7,9 @@ export const createOrder = (data) =>
     },
   }).then((res) => res.json());
 
-export const getOrders = () => {};
+// export const getOrders = () => fetch('/orders').then((res) => res.json());
+
+// export const deleteOrder = (id) =>
+//   fetch('/order/${id}', {
+//     method: 'DELETE',
+//   }).then((res) => res.json());
