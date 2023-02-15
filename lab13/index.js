@@ -7,72 +7,95 @@
 //     При натисканні на “купити” з'являється повідомлення, що товар куплений
 //     і повернення у вихідний стан програми ( коли відображається лише список категорій).
 
-const arr = [{ name: 'wedwed', description: 'wdewfwef', price: 'wdwefwe' }];
-const cat = document.getElementsByClassName('cat')[0];
-const dog = document.getElementsByClassName('dog')[0];
-const bird = document.getElementsByClassName('bird')[0];
-const category = document.getElementsByClassName('category')[0];
-category.addEventListener('click', addDivInfo);
+const config = {
+  phones: [
+    {
+      name: 'Iphone 14',
+      price: 1499,
+      description:
+        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
+    },
+    {
+      name: 'Oneplus 10T',
+      price: 999,
+      description:
+        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
+    },
+  ],
+  laptops: [
+    {
+      name: 'Macbook Pro 13',
+      price: 1699,
+      description:
+        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
+    },
+    {
+      name: 'Dell XPS 13',
+      price: 1399,
+      description:
+        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
+    },
+  ],
+  headsets: [
+    {
+      name: 'Apple Airpods',
+      price: 299,
+      description:
+        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
+    },
+    {
+      name: 'Sennheiser HD 4.40',
+      price: 230,
+      description:
+        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
+    },
+  ],
+};
 
-const catalog = document.getElementsByClassName('catalog')[0];
-catalog.addEventListener('click', addDivCatalog);
+const ulElement = document.querySelector('ul');
+const formElement = document.getElementById('desc');
 
-const button = document.getElementsByClassName('button');
-button.addEventListener('click', buyItem);
+const createMenuItem = (name) => {
+  const liElement = document.createElement('li');
+  liElement.innerText = name;
+  return liElement;
+};
 
-const mainBlock = document.getElementsByClassName('mainBlock')[0];
-mainBlock.addEventListener('click', clear);
+const showDesc = (item) => {
+  formElement.style.display = 'block';
+  formElement.lastElementChild.innerHTML = `Модель:${item.name} </br> Ціна: $${item.price} </br> Опис: ${item.description}`;
+};
 
-const possible = [cat, dog, bird];
-
-const items = document.getElementsByClassName('items')[0];
-
-const h1 = document.getElementById('h3');
-const p = document.getElementById('p');
-const span = document.getElementById('span');
-
-function pushText(el) {
-  h1.innerText = arr[el].name;
-  p.innerText = arr[el].description;
-  span.innerText = arr[el].price;
-}
-
-function addDivInfo(event) {
-  event.stopPropagation();
-  const nameLink = event.target.innerText;
-  if (nameLink === 'dog') {
-    showElement(dog);
-  } else if (nameLink === 'cat') {
-    showElement(cat);
-  } else if (nameLink === 'bird') {
-    showElement(bird);
+const createItems = (items) => {
+  const listOfItems = document.createElement('ul');
+  const previousList = document.getElementById('items');
+  if (previousList) {
+    previousList.remove();
   }
-}
-
-function addDivCatalog(event) {
-  event.stopPropagation();
-  const nameLink = e.target.innerText;
-  const index = arr.findIndex((el) => el.name === nameLink);
-  pushText(index);
-  items.style.display = 'block';
-}
-
-function showElement(el) {
-  el.style.display = 'block';
-  possible
-    .filter((item) => item !== el)
-    .forEach((item) => {
-      item.style.display = 'block';
+  listOfItems.id = 'items';
+  items.forEach((item) => {
+    const stringToDisplay = `${item.name}`;
+    const element = createMenuItem(stringToDisplay);
+    element.addEventListener('click', () => {
+      showDesc(item);
     });
-}
-
-function show(element) {
-  items.style.display = 'none';
-  element.style.display = 'block';
-}
-
-function displayNone(arr) {
-  arr.forEach((element) => {
-    element.style.display = 'none';
+    listOfItems.append(element);
   });
+  ulElement.parentNode.append(listOfItems);
+};
+
+formElement.addEventListener('submit', (event) => {
+  alert('Куплено');
+});
+
+const handleMenuClick = (event) => {
+  const category = event.target.innerHTML;
+  const items = config[category];
+  createItems(items);
+};
+
+for (const key in config) {
+  const liElement = createMenuItem(key);
+  liElement.addEventListener('click', handleMenuClick);
+  ulElement.append(liElement);
 }
