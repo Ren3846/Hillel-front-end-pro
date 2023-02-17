@@ -20,7 +20,7 @@ const getPosts = () => {
       const response = await res.json();
       console.log(response);
       createPost(response.id, response.title, response.body);
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', () => {
         getComments(response.id);
         btn.style.display = 'none';
       });
@@ -55,44 +55,3 @@ const createListComments = (array) => {
     comment.insertAdjacentHTML('afterend', `<h3>${element.email}</h3>`);
   });
 };
-
-// const ulElement = document.querySelector('ul');
-
-// const createList = (arr) => {
-//   arr.forEach((el) => {
-//     const element = document.createElement('li');
-//     element.addEventListener('click', () => {
-//       getComments(el.id);
-//     });
-//     element.innerText = el.title;
-//     ulElement.append(element);
-//   });
-// };
-
-// const fetchPosts = () => {
-//   fetch(getInput()).then(async (res) => {
-//     if (res.status === 200) {
-//       const response = await res.json();
-//       div.insertAdjacentHTML('afterend', '<button id="btn">Переглянути коментар</button>');
-//       div.insertAdjacentHTML('afterend', `<p>${response.body}</p>`);
-//       div.insertAdjacentHTML('afterend', `<h1>${response.id}. ${response.title}</h1>`);
-//     } else {
-//       alert('error');
-//     }
-//   });
-// };
-
-// const fetchComments = (id) => {
-//   fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`).then(async (res) => {
-//     if (res.status === 200) {
-//       const response = await res.json();
-//       console.log(response);
-//     } else {
-//       alert('error');
-//     }
-//   });
-// };
-
-// btn.addEventListener('click', (event) => {
-//   fetchComments();
-// });
