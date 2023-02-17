@@ -25,7 +25,7 @@ const getPosts = () => {
         btn.style.display = 'none';
       });
     } else {
-      alert('Ошибка:' + res.status);
+      alert('Помилка:' + res.status);
     }
   });
 };
@@ -37,7 +37,7 @@ const getComments = (id) => {
       console.log(response);
       createListComments(response);
     } else {
-      alert('Ошибка:' + res.status);
+      alert('Помилка:' + res.status);
     }
   });
 };
@@ -46,7 +46,7 @@ const createPost = (id, title, body) => {
   post.innerHTML = `
   <h1>${id}. ${title}</h1>
   <p id="comment">${body}</p> 
-  <button id="btn">Переглянути коментар</button> `;
+  <button id="btn">Переглянути коментарі</button> `;
 };
 
 const createListComments = (array) => {
