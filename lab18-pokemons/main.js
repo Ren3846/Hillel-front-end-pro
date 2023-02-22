@@ -4,68 +4,45 @@
 
 // Після закриття модального вікна має бути можливість повторно відкрити іншого покемона чи того самого.
 
-const pokedex = document.getElementById('pokedex');
+const container = document.querySelector('.container');
+const modal = document.querySelector('.modal');
+const modalContent = document.querySelector('.modal-content');
+const closeButton = document.querySelector('.close-button');
+const pokemonDetails = document.querySelector('.pokemon-details');
 
-const fetchPokemon = () => {
-  const promises = [];
-  for (let i = 1; i <= 20; i++) {
-    const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-    promises.push(fetch(url).then((res) => res.json()));
-  }
-  Promise.all(promises).then((results) => {
-    const pokemon = results.map((result) => ({
-      name: result.name,
-      image: result.sprites['front_default'],
-      type: result.types.map((type) => type.type.name).join(', '),
-      id: result.id,
-    }));
-    displayPokemon(pokemon);
-
-    console.log(pokemon[1].name);
-
-    viewBtn.addEventListener('click', () => {
-      displayPokemonInfo(pokemon);
+fetch('https://pokeapi.co/api/v2/pokemon/?limit=20')
+  .then((response) => response.json())
+  .then((data) => {
+    data.results.forEach((pokemon) => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.textContent = pokemon.name;
+      container.appendChild(card);
+      card.addEventListener('click', () => {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
+          .then((response) => response.json())
+          .then((pokemonData) => {
+            pokemonDetails.innerHTML = `
+              <img src="${pokemonData.sprites.front_default}" />
+              <p>Weight: ${pokemonData.weight}</p>
+              <p>Height: ${pokemonData.height}</p>
+            `;
+            modal.style.display = 'block';
+          })
+          .catch((error) => console.log(error));
+      });
     });
-  });
-};
+  })
+  .catch((error) => console.log(error));
 
-// https://pokeapi.co/api/v2/pokemon/ditto
+closeButton.addEventListener('click', () => {
+  modal.style.display = 'none';
+  pokemonDetails.innerHTML = '';
+});
 
-const displayPokemon = (pokemon) => {
-  const pokemonHTMLString = pokemon
-    .map(
-      (pokeman) => `
-        <li class="card">
-            <h2 class="card-title"> ${pokeman.name}</h2>
-            <button id="viewBtn">View ${pokeman.name}</button>
-        </li>
-    `,
-    )
-    .join('');
-  pokedex.innerHTML = pokemonHTMLString;
-};
-
-// const displayPokemonInfo = (pokemon) => {
-//   fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`).then(async (res) => {
-//     const response = await res.json();
-//     console.log('response ----', response.name);
-//   });
-
-//   console.log(pokemon);
-//   const pokemonHTMLString = pokemon
-//     .map(
-//       (pokeman) => `
-//        <li class="card">
-//       <img class="card-image" src="${pokeman.image}" />
-//       <h2 class="card-title">
-//         ${pokeman.id}. ${pokeman.name}
-//       </h2>
-//       <p class="card-subtitle">Type: ${pokeman.type}</p>
-//     </li>;
-//     `,
-//     )
-//     .join('');
-//   pokedex.innerHTML = pokemonHTMLString;
-// };
-
-fetchPokemon();
+window.addEventListener('click', (event) => {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+    pokemonDetails.innerHTML = '';
+  }
+});

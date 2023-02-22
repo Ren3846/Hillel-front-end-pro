@@ -4,42 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-.container {
-    padding: 40px;
-    margin: 0 auto;
-}
+    <title>Pocemons</title>
+    <link rel="stylesheet" href="/lab18-pokemons/style.css">
 
-h1 {
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 54px;
-}
-
-#pokedex {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-gap: 20px;
-    padding-inline-start: 0;
-}
-
-.card {
-    list-style: none;
-    padding: 40px;
-    background-color: #f4f4f4;
-    color: #222;
-  text-align: center;
-}
-    </style>
 </head>
 
 
 <body>
-    <div class="container">
-        <h1>Choose pokemon</h1>
-        <ul id="pokedex"></ul>
+    <div class="container"></div>
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div class="pokemon-details"></div>
+      </div>
     </div>
+
     <script src="main.js"></script>
 </body>
 </html>
