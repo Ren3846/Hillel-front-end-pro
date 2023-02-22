@@ -16,4 +16,5 @@ function generateList(array) {
   return ul;
 }
 
-generateList([1, [2, 3], 4, [5, [6, 7]]]);
+const myList = generateList([1, 2, [3, 4], 5, [6, 7, 8]]);
+document.getElementById('list-container').innerHTML = myList;
