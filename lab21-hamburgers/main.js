@@ -20,8 +20,6 @@
 
 // Усі розміри бургера, добавки , начинки повинні бути доступні у вигляді статичних властивосте
 
-// Приклад роботи коду:
-
 class Hamburger {
   static SIZE_SMALL = { price: 50, calories: 20 };
   static SIZE_LARGE = { price: 100, calories: 40 };
