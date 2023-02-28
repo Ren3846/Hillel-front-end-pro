@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       .tab-wrapper{
+           display: flex;
+           align-items: center;
+           justify-content: center;
+       }
+        .tab-item{
+            padding: 5px;
+            cursor: pointer;
+            border: 1px solid grey;
+        }
+        .tab-item:hover{
+            border-color: blue;
+        }
+        .tab-content{
+            width: 400px;
+            border: 1px solid grey;
+            padding: 10px;
+            margin: 30px auto;
+            display: none;
+        }
+        .tab-content.visible{
+            display: block;
+        }
+    </style>
+    <script src="event-delegation_3.js" defer></script>
+</head>
+<body>
+    <div class="tab-wrapper">
+        <div class="tab-item" data-content="1">1 block</div>
+        <div class="tab-item" data-content="2">2 block</div>
+        <div class="tab-item" data-content="3">3 block</div>
+        <div class="tab-item" data-content="4">4 block</div>
+        <div class="tab-item" data-content="5">5 block</div>
+    </div>
+    <div class="tab-content content1"> 1 Lorem ipsum dolor.</div>
+    <div class="tab-content content2"> 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+    <div class="tab-content content3"> 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut nobis numquam ullam?</div>
+    <div class="tab-content content4"> 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut nobis numquam ullam?</div>
+    <div class="tab-content content5"> 5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut nobis numquam ullam?</div>
+</body>
+</html>
