@@ -25,6 +25,19 @@ function generateList(array) {
   // Повертаємо елемент <ul>
   return ul;
 }
+
+// function generateList(array, indentation = '') {
+//   let html = '<ul>';
+//   for (let item of array) {
+//     if (Array.isArray(item)) {
+//       html += `<li>${indentation}<ul>${generateList(item, `${indentation}  `)}</ul></li>`;
+//     } else {
+//       html += `<li>${indentation}${item}</li>`;
+//     }
+//   }
+//   html += '</ul>';
+//   return html;
+// }
 // Створюємо масив з числами та масивами чисел
 const array = [1, 2, [3, 4, [5, 6, 7, 8]]];
 
