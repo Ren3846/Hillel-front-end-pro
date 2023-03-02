@@ -56,17 +56,65 @@ function getReasonForMostRecentInfractionLinkified(name, callback) {
   });
 }
 
-/**
- * Returns reason of the worst & the most recent user infraction with linkified urls
- * @param {string} username
- * @returns {Promise.<Object>}
- */
-export function getRelevantInfractionReasons(username) {
-  return new Promise(function (resolve) {
-    getReasonForWorstInfractionLinkified(username, function (worst) {
-      getReasonForMostRecentInfractionLinkified(username, function (mostRecent) {
-        resolve({ mostRecent, worst });
-      });
-    });
-  });
-}
+// /**
+//  * Returns reason of the worst & the most recent user infraction with linkified urls
+//  * @param {string} username
+//  * @returns {Promise.<Object>}
+//  */
+// export function getRelevantInfractionReasons(username) {
+//   return new Promise(function (resolve) {
+//     getReasonForWorstInfractionLinkified(username, function (worst) {
+//       getReasonForMostRecentInfractionLinkified(username, function (mostRecent) {
+//         resolve({ mostRecent, worst });
+//       });
+//     });
+//   });
+// }
+
+// import { getUserByName, getUserInfractions } from './user-api.js';
+
+// async function getLinkifiedReason(infraction) {
+//   const linkifiedReason = infraction.reason.replace(
+//     /\bhttps:\/\/\S+/,
+//     (match) => `<a href="${match}">${match}</a>`
+//   );
+//   return linkifiedReason;
+// }
+
+// async function getWorstInfraction(username) {
+//   const user = await getUserByName(username);
+//   const infractions = await getUserInfractions(user.id);
+
+//   let worstInfraction = infractions[0];
+//   for (let i = 1; i < infractions.length; i++) {
+//     if (infractions[i].points > worstInfraction.points) {
+//       worstInfraction = infractions[i];
+//     }
+//   }
+
+//   const linkifiedReason = await getLinkifiedReason(worstInfraction);
+//   return linkifiedReason;
+// }
+
+// async function getMostRecentInfraction(username) {
+//   const user = await getUserByName(username);
+//   const infractions = await getUserInfractions(user.id);
+
+//   let mostRecentInfraction = infractions[0];
+//   for (let i = 1; i < infractions.length; i++) {
+//     if (infractions[i].id > mostRecentInfraction.id) {
+//       mostRecentInfraction = infractions[i];
+//     }
+//   }
+
+//   const linkifiedReason = await getLinkifiedReason(mostRecentInfraction);
+//   return linkifiedReason;
+// }
+
+// async function getRelevantInfractionReasons(username) {
+//   const worstInfraction = await getWorstInfraction(username);
+//   const mostRecentInfraction = await getMostRecentInfraction(username);
+//   return { mostRecent: mostRecentInfraction, worst: worstInfraction };
+// }
+
+// export { getRelevantInfractionReasons };

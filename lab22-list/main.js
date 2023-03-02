@@ -39,7 +39,7 @@ function generateList(array) {
 //   return html;
 // }
 // Створюємо масив з числами та масивами чисел
-const array = [1, 2, [3, 4, [5, 6, 7, 8]]];
+const array = [1, 2, [3, 4, [5, 6, 7, 8]], 1, 2];
 
 // Отримуємо елемент HTML, до якого будемо додавати список
 const listContainer = document.getElementById('list-container');
