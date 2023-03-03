@@ -5,16 +5,22 @@ const uglify = require('gulp-uglify');
 const cleanCSS = require('gulp-clean-css');
 const sass = require('gulp-sass')(require('sass'));
 
+const SRC_DIR = './src';
+const DIST_DIR = './dist';
+
 gulp.task('sass', function () {
-  return gulp.src('./src/scss/**/*.scss').pipe(sass()).pipe(gulp.dest('./dist/css'));
+  return gulp
+    .src(SRC_DIR + '/scss/**/*.scss')
+    .pipe(sass())
+    .pipe(gulp.dest(DIST_DIR + '/css'));
 });
 
 gulp.task('scripts', function () {
   return gulp
-    .src('./src/**/*.js')
+    .src(SRC_DIR + '/**/*.js')
     .pipe(concat('all.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('./dist/js'));
+    .pipe(gulp.dest(DIST_DIR + '/js'));
 });
 
 // gulp.task('less', function () {
