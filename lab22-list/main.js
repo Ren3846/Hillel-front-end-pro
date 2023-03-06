@@ -10,11 +10,13 @@ function generateList(array) {
     const li = document.createElement('li');
 
     // Якщо поточний елемент масиву є масивом, рекурсивно викликаємо функцію generateList() для генерації списку з його елементів
+
     if (Array.isArray(item)) {
       li.appendChild(generateList(item));
     } else {
       // Інакше, якщо поточний елемент масиву є числом, створюємо текстовий вузол для його значення і додаємо його до елементу <li>
-      const text = document.createTextNode(item);
+      const text = document.createTextNode(item + i);
+
       li.appendChild(text);
     }
 
