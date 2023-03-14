@@ -56,27 +56,27 @@ function getReasonForMostRecentInfractionLinkified(name, callback) {
   });
 }
 
-// /**
-//  * Returns reason of the worst & the most recent user infraction with linkified urls
-//  * @param {string} username
-//  * @returns {Promise.<Object>}
-//  */
-// export function getRelevantInfractionReasons(username) {
-//   return new Promise(function (resolve) {
-//     getReasonForWorstInfractionLinkified(username, function (worst) {
-//       getReasonForMostRecentInfractionLinkified(username, function (mostRecent) {
-//         resolve({ mostRecent, worst });
-//       });
-//     });
-//   });
-// }
+/**
+ * Returns reason of the worst & the most recent user infraction with linkified urls
+ * @param {string} username
+ * @returns {Promise.<Object>}
+ */
+export function getRelevantInfractionReasons(username) {
+  return new Promise(function (resolve) {
+    getReasonForWorstInfractionLinkified(username, function (worst) {
+      getReasonForMostRecentInfractionLinkified(username, function (mostRecent) {
+        resolve({ mostRecent, worst });
+      });
+    });
+  });
+}
 
 // import { getUserByName, getUserInfractions } from './user-api.js';
 
 // async function getLinkifiedReason(infraction) {
 //   const linkifiedReason = infraction.reason.replace(
 //     /\bhttps:\/\/\S+/,
-//     (match) => `<a href="${match}">${match}</a>`
+//     (match) => `<a href="${match}">${match}</a>`,
 //   );
 //   return linkifiedReason;
 // }
