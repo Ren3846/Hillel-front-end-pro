@@ -73,48 +73,56 @@ export function getRelevantInfractionReasons(username) {
 
 // import { getUserByName, getUserInfractions } from './user-api.js';
 
-// async function getLinkifiedReason(infraction) {
-//   const linkifiedReason = infraction.reason.replace(
-//     /\bhttps:\/\/\S+/,
-//     (match) => `<a href="${match}">${match}</a>`,
-//   );
-//   return linkifiedReason;
+// const getReasonForWorstInfractionLinkified = (username, callback) => {
+//   getUserByName(username, (user) => {
+//     getUserInfractions(user.id, (result) => {
+//       // find most recent infraction with most infraction points
+//       let foundIndex = 0;
+//       for (let i = result.length - 1; i >= 0; i--) {
+//         if (result[i].points > result[foundIndex].points) {
+//           foundIndex = i;
+//         }
+//       }
+
+//       // replace urls by links
+//       const linkifiedReason = result[foundIndex].reason.replace(
+//         /\bhttps:\/\/\S+/,
+//         (match) => `<a href="${match}">${match}</a>`,
+//       );
+
+//       callback(linkifiedReason);
+//     });
+//   });
+// };
+
+// const getReasonForMostRecentInfractionLinkified = (name, callback) => {
+//   getUserByName(name, (user) => {
+//     getUserInfractions(user.id, (result) => {
+//       let foundIndex = 0;
+//       for (let i = 1; i < result.length; i++) {
+//         if (result[i].id > result[foundIndex].id) {
+//           foundIndex = i;
+//         }
+//       }
+
+//       const linkifiedReason = result[foundIndex].reason.replace(
+//         /\bhttps:\/\/\S+/,
+//         (match) => `<a href="${match}">${match}</a>`,
+//       );
+
+//       callback(linkifiedReason);
+//     });
+//   });
+// };
+
+// export function getRelevantInfractionReasons(username) {
+//   return new Promise((resolve, reject) => {
+//     getReasonForWorstInfractionLinkified(username, (worst) => {
+//       getReasonForMostRecentInfractionLinkified(username, (mostRecent) => {
+//         resolve({ mostRecent, worst });
+//       });
+//     });
+//   }).catch((error) => {
+//     reject(error);
+//   });
 // }
-
-// async function getWorstInfraction(username) {
-//   const user = await getUserByName(username);
-//   const infractions = await getUserInfractions(user.id);
-
-//   let worstInfraction = infractions[0];
-//   for (let i = 1; i < infractions.length; i++) {
-//     if (infractions[i].points > worstInfraction.points) {
-//       worstInfraction = infractions[i];
-//     }
-//   }
-
-//   const linkifiedReason = await getLinkifiedReason(worstInfraction);
-//   return linkifiedReason;
-// }
-
-// async function getMostRecentInfraction(username) {
-//   const user = await getUserByName(username);
-//   const infractions = await getUserInfractions(user.id);
-
-//   let mostRecentInfraction = infractions[0];
-//   for (let i = 1; i < infractions.length; i++) {
-//     if (infractions[i].id > mostRecentInfraction.id) {
-//       mostRecentInfraction = infractions[i];
-//     }
-//   }
-
-//   const linkifiedReason = await getLinkifiedReason(mostRecentInfraction);
-//   return linkifiedReason;
-// }
-
-// async function getRelevantInfractionReasons(username) {
-//   const worstInfraction = await getWorstInfraction(username);
-//   const mostRecentInfraction = await getMostRecentInfraction(username);
-//   return { mostRecent: mostRecentInfraction, worst: worstInfraction };
-// }
-
-// export { getRelevantInfractionReasons };
