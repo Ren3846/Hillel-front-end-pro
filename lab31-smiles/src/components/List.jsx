@@ -24,7 +24,7 @@ export default function EmojiList({ onWinner }) {
   };
 
   return (
-    <div>
+    <div className="container">
       {emojis.map((e) => (
         <EmojiCounter key={e.emoji} emoji={e.emoji} onVote={handleVote} />
       ))}
