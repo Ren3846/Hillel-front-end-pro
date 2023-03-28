@@ -1,5 +1,10 @@
 import { getUserByName, getUserInfractions } from './user-api.js';
 
+/**
+ * @param {string} username
+ * @param {function(string)} callback
+ */
+
 function getReasonForWorstInfractionLinkified(username, onReasonFetched) {
   getUserByName(username, (user) => {
     getUserInfractions(user.id, (result) => {
@@ -20,6 +25,11 @@ function getReasonForWorstInfractionLinkified(username, onReasonFetched) {
   });
 }
 
+/**
+ * @param {string} name
+ * @param {function(string)} callback
+ */
+
 function getReasonForMostRecentInfractionLinkified(name, onReasonFetched) {
   getUserByName(name, (user) => {
     getUserInfractions(user.id, (result) => {
@@ -39,6 +49,13 @@ function getReasonForMostRecentInfractionLinkified(name, onReasonFetched) {
     });
   });
 }
+
+/**
+ * Returns a Promise that resolves to an object containing the linkified reasons for the worst
+ * and most recent infractions for a given user.
+ * @param {string} username
+ * @returns {Promise}
+ */
 
 export function getRelevantInfractionReasons(username) {
   return new Promise(function (resolve, reject) {
