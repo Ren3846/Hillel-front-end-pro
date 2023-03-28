@@ -1,17 +1,8 @@
-/**
- * This code needs help.
- */
-
 import { getUserByName, getUserInfractions } from './user-api.js';
 
-/**
- * @param {string} username
- * @param {function(string)} callback
- */
-function getReasonForWorstInfractionLinkified(username, callback) {
-  getUserByName(username, function (user) {
-    getUserInfractions(user.id, function (result) {
-      // find most recent infraction with most infraction points
+function getReasonForWorstInfractionLinkified(username, onReasonFetched) {
+  getUserByName(username, (user) => {
+    getUserInfractions(user.id, (result) => {
       let foundIndex = 0;
       for (let i = result.length - 1; i >= 0; i--) {
         if (result[i].points > result[foundIndex].points) {
@@ -19,25 +10,19 @@ function getReasonForWorstInfractionLinkified(username, callback) {
         }
       }
 
-      // replace urls by links
-      callback(
-        result[foundIndex].reason.replace(
-          /\bhttps:\/\/\S+/,
-          (match) => '<a href="' + match + '">' + match + '</a>',
-        ),
+      const reason = result[foundIndex].reason.replace(
+        /\bhttps:\/\/\S+/,
+        (match) => `<a href="${match}">${match}</a>`,
       );
+
+      onReasonFetched(reason);
     });
   });
 }
 
-/**
- * @param {string} name
- * @param {function(string)} callback
- */
-function getReasonForMostRecentInfractionLinkified(name, callback) {
-  getUserByName(name, function (user) {
-    getUserInfractions(user.id, function (result) {
-      // find most recent infraction
+function getReasonForMostRecentInfractionLinkified(name, onReasonFetched) {
+  getUserByName(name, (user) => {
+    getUserInfractions(user.id, (result) => {
       let foundIndex = 0;
       for (let i = 1; i < result.length; i++) {
         if (result[i].id > result[foundIndex].id) {
@@ -45,84 +30,23 @@ function getReasonForMostRecentInfractionLinkified(name, callback) {
         }
       }
 
-      // replace urls by links
-      callback(
-        result[foundIndex].reason.replace(
-          /\bhttps:\/\/\S+/,
-          (match) => '<a href="' + match + '">' + match + '</a>',
-        ),
+      const reason = result[foundIndex].reason.replace(
+        /\bhttps:\/\/\S+/,
+        (match) => `<a href="${match}">${match}</a>`,
       );
+
+      onReasonFetched(reason);
     });
   });
 }
 
-/**
- * Returns reason of the worst & the most recent user infraction with linkified urls
- * @param {string} username
- * @returns {Promise.<Object>}
- */
 export function getRelevantInfractionReasons(username) {
-  return new Promise(function (resolve) {
-    getReasonForWorstInfractionLinkified(username, function (worst) {
-      getReasonForMostRecentInfractionLinkified(username, function (mostRecent) {
-        resolve({ mostRecent, worst });
+  return new Promise(function (resolve, reject) {
+    getReasonForWorstInfractionLinkified(username, (worstReason) => {
+      getReasonForMostRecentInfractionLinkified(username, (mostRecentReason) => {
+        const infractionReasons = { mostRecent: mostRecentReason, worst: worstReason };
+        resolve(infractionReasons);
       });
     });
   });
 }
-
-// import { getUserByName, getUserInfractions } from './user-api.js';
-
-// const getReasonForWorstInfractionLinkified = (username, callback) => {
-//   getUserByName(username, (user) => {
-//     getUserInfractions(user.id, (result) => {
-//       // find most recent infraction with most infraction points
-//       let foundIndex = 0;
-//       for (let i = result.length - 1; i >= 0; i--) {
-//         if (result[i].points > result[foundIndex].points) {
-//           foundIndex = i;
-//         }
-//       }
-
-//       // replace urls by links
-//       const linkifiedReason = result[foundIndex].reason.replace(
-//         /\bhttps:\/\/\S+/,
-//         (match) => `<a href="${match}">${match}</a>`,
-//       );
-
-//       callback(linkifiedReason);
-//     });
-//   });
-// };
-
-// const getReasonForMostRecentInfractionLinkified = (name, callback) => {
-//   getUserByName(name, (user) => {
-//     getUserInfractions(user.id, (result) => {
-//       let foundIndex = 0;
-//       for (let i = 1; i < result.length; i++) {
-//         if (result[i].id > result[foundIndex].id) {
-//           foundIndex = i;
-//         }
-//       }
-
-//       const linkifiedReason = result[foundIndex].reason.replace(
-//         /\bhttps:\/\/\S+/,
-//         (match) => `<a href="${match}">${match}</a>`,
-//       );
-
-//       callback(linkifiedReason);
-//     });
-//   });
-// };
-
-// export function getRelevantInfractionReasons(username) {
-//   return new Promise((resolve, reject) => {
-//     getReasonForWorstInfractionLinkified(username, (worst) => {
-//       getReasonForMostRecentInfractionLinkified(username, (mostRecent) => {
-//         resolve({ mostRecent, worst });
-//       });
-//     });
-//   }).catch((error) => {
-//     reject(error);
-//   });
-// }
