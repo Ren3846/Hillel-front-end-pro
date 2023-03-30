@@ -114,6 +114,7 @@ code {
 
 /* стилі для центрального контейнера */
 .main-container {
+  text-align: left;
   flex: 1;
   padding: 1rem;
 }

@@ -1,4 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="module">
+        import { getRelevantInfractionReasons } from './index.js';
+
+        function outputJSON(data) {
+			document.body.insertAdjacentHTML('beforeend', `Infraction reasons: <pre>${JSON.stringify(data, null, ' ')}</pre>`)
+		}
+
+		getRelevantInfractionReasons('John').then(outputJSON);
+    </script>
+</body>
+</html>
+
+
+
+<!-- <!doctype html>
 <body>
 	<script>
 {
@@ -27,4 +51,4 @@
 
 		getRelevantInfractionReasons('John').then(outputJSON);
     </script>
-</body>
+</body> -->

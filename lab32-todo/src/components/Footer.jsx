@@ -1,7 +1,10 @@
 export default function Footer() {
   return (
     <footer>
-      <div></div>
+      <div>
+        <hr></hr>
+        <p>Developed by Renat</p>
+      </div>
     </footer>
   );
 }

@@ -1,8 +1,11 @@
+import TodoList from './TodoList';
+
 export default function Container() {
   return (
-    <main>
+    <main className="main-container">
       <h2>Hello!</h2>
-      <p>Lorem ipsum dolor</p>
+      <p>What do you need to do?</p>
+      <TodoList></TodoList>
     </main>
   );
 }
