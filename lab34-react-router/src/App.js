@@ -1,34 +1,29 @@
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import UserList from './components/UserList';
 import AlbumList from './components/AlbumList';
 import PhotoList from './components/PhotoList';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div>
         <nav>
           <ul>
             <li>
-              <Link to="/">Список користувачів</Link>
+              <NavLink to="/">Список користувачів</NavLink>
             </li>
           </ul>
         </nav>
 
-        <Switch>
-          <Route exact path="/">
-            <UserList />
-          </Route>
-          <Route exact path="/albums/:userId">
-            <AlbumList />
-          </Route>
-          <Route exact path="/photos/:albumId">
-            <PhotoList />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<UserList />} />
+          <Route path="/albums/:userId" element={<AlbumList />} />
+          <Route path="/photos/:albumId" element={<PhotoList />} />
+        </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
+
 export default App;
